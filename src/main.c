@@ -33,11 +33,17 @@ int main(int argc, char *argv[]) {
     tables_array.avail_tables = 0;
     tables_array.qtty_tables = 0;
 
-    WindowData data;
+    ApplicationData app_data;
+    
+    init_application(&app_data);
 
-    init_window(&data);
+    WindowData win_data;
 
-    main_loop(&data, &tables_array);
+    init_window(&win_data);
+
+    add_window(&app_data, &win_data);
+
+    main_loop(&app_data, &win_data, &tables_array);
 
     close_window();
 }
